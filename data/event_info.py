@@ -1,4 +1,4 @@
 # 组员 A 负责修改此文件
-EVENT_NAME = "班级活动报名与统计网页"
-EVENT_DESCRIPTION = "欢迎参加本次班级活动！请填写报名信息，提交后可查看实时统计结果。"
-EVENT_NOTICE = "所有修改都通过 Fork + Pull Request 进入主仓库，请遵守协作规则。"
+EVENT_NAME = "云达Python小组 — 班级活动报名"
+EVENT_DESCRIPTION = "一起来参加活动吧！填表报名，看看大家都选了什么~"
+EVENT_NOTICE = "协作提醒：只改自己负责的文件，不要碰别人的代码哦！"
