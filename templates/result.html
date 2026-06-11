@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ result_title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ result_title }}</h1>
+
+        <div class="card stat-card">
+            <h2>📊 总报名人数：<span class="highlight">{{ total }}</span> 人</h2>
+        </div>
+
+        <div class="card">
+            <h2>各活动方向报名人数</h2>
+            {% if activity_count %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>活动方向</th>
+                        <th>人数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity, count in activity_count.items() %}
+                    <tr>
+                        <td>{{ activity }}</td>
+                        <td><strong>{{ count }}</strong> 人</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="empty">暂无数据</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>最近报名记录</h2>
+            {% if recent %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>小组</th>
+                        <th>活动方向</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in recent %}
+                    <tr>
+                        <td>{{ r.name }}</td>
+                        <td>{{ r.group }}</td>
+                        <td>{{ r.activity }}</td>
+                        <td>{{ r.reason or '—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="empty">暂无报名记录</p>
+            {% endif %}
+        </div>
+
+        <div class="footer-link">
+            <a href="/">← 返回报名页面</a>
+        </div>
+    </div>
+</body>
+</html>
